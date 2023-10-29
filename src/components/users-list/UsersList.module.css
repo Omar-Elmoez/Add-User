@@ -1,0 +1,9 @@
+.container {
+  margin-top: 2rem;
+  display: grid;
+  gap: .7rem;
+}
+.container div {
+  border: 2px solid #ddd;
+  padding: .8rem 1.1rem;
+}
