@@ -1,10 +1,13 @@
+/* eslint-disable react/prop-types */
 import Container from "../container/Container";
-import classes from './UsersList.module.css';
-function UsersList() {
+import classes from "./UsersList.module.css";
+function UsersList(props) {
   return (
     <Container className={classes.container}>
-      <div>User One</div>
-      <div>User Two</div>
+      {props.data &&
+        props.data.map((user, index) => (
+          <div key={index}>{`${user.username} ( ${user.age} years old ).`}</div>
+        ))}
     </Container>
   );
 }
