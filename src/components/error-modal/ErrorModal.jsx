@@ -11,16 +11,16 @@ function ErrorModal(props) {
     msgText = "Please enter a valid age ( > 0 )";
   }
   return (
-    <div className={classes.wrap} onClick={hideErrorMsg}>
+    <>
+      <div className={classes.wrap} onClick={hideErrorMsg}></div>
       <div className={classes.msgBx}>
         <header>Invalid Input</header>
         <div>
           <p>{msgText}</p>
-          <Button>Okay</Button>
+          <Button onClick={hideErrorMsg}>Okay</Button>
         </div>
       </div>
-    </div>
+    </>
   );
 }
-
 export default ErrorModal;
