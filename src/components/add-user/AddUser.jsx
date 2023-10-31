@@ -18,13 +18,9 @@ function AddUser(props) {
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    if (userInputs.username && userInputs.age) {
-      props.onSubmit(userInputs);
-      if (+userInputs.age > 0) {
-        setUserInputs(initialData);
-      }
-    } else {
-      props.onError();
+    props.onSubmit(userInputs);
+    if (+userInputs.age > 0 && userInputs.username.trim().length !== 0) {
+      setUserInputs(initialData);
     }
   };
 

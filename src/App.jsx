@@ -6,11 +6,11 @@ import ErrorModal from "./components/error-modal/ErrorModal";
 function App() {
   const [data, setData] = useState(null);
   const [showError, setShowError] = useState(false); 
-  const [age, setAge] = useState();
+  const [enteredValues, setEnteredValues] = useState({});
 
   const displayUsers = (userInputs) => {
-    if (+userInputs.age <= 0) {
-      setAge(+userInputs.age)
+    setEnteredValues(userInputs)
+    if (+userInputs.age <= 0 || userInputs.username.trim().length === 0) {
       handleError();
     } else {
       setData((prevData) => {
@@ -28,15 +28,15 @@ function App() {
     fontSize: "20px",
     color: "#ddd",
   };
-  
+
   return (
     <>
-      <AddUser onSubmit={displayUsers} onError={handleError} />
+      <AddUser onSubmit={displayUsers} />
       {data ? <UsersList data={data} /> : <p style={msgStyle}>No Users Yet!</p>}
       {showError && (
         <ErrorModal
           handleError={handleError}
-          age={age}
+          enteredValues={enteredValues}
         />
       )}
     </>
