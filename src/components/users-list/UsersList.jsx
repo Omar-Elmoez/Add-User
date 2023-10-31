@@ -4,10 +4,11 @@ import classes from "./UsersList.module.css";
 function UsersList(props) {
   return (
     <Container className={classes.container}>
-      {props.data &&
-        props.data.map((user, index) => (
-          <div key={index}>{user.username} ( {user.age} years old ).</div>
-        ))}
+      {props.data.map((user, index) => (
+        <div key={index}>
+          {user.username} ( {user.age} years old ).
+        </div>
+      ))}
     </Container>
   );
 }
